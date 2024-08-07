@@ -1,4 +1,4 @@
-.contactForm {
+.form {
   border: 1px solid black;
   width: 25vw;
   padding: 15px;
@@ -6,10 +6,9 @@
   margin-bottom: 20px;
 }
 
-.formHeader {
-  padding-top: 10px;
-  font-size: 20px;
-  margin-bottom: 3px;
+.formLabel {
+  font-size: 15px;
+  margin-bottom: 10px;
 }
 
 .formInput {
