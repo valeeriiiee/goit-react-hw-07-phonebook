@@ -10,19 +10,12 @@ const initialContactsState = [
 
 const initialFilterState = '';
 
-export const contactsReducer = createReducer(initialContactsState, builder => {
-  builder
-    .addCase(addContact, (state, action) => {
-      // Check for duplicate ID before adding a new contact
-      if (!state.some(contact => contact.id === action.payload.id)) {
-        state.push(action.payload);
-      }
-    })
-    .addCase(deleteContact, (state, action) =>
-      state.filter(contact => contact.id !== action.payload.id)
-    );
+export const contactsReducer = createReducer(initialContactsState, {
+  [addContact]: (state, action) => [...state, action.payload],
+  [deleteContact]: (state, action) =>
+    state.filter(contact => contact.id !== action.payload.id),
 });
 
-export const filterReducer = createReducer(initialFilterState, builder => {
-  builder.addCase(setFilter, (state, action) => action.payload);
+export const filterReducer = createReducer(initialFilterState, {
+  [setFilter]: (state, action) => action.payload,
 });
